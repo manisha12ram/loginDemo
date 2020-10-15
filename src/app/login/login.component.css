@@ -19,7 +19,7 @@
   }
   
   .login-header {
-    background: #e4504e;
+    
     padding: 20px;
     font-size: 1.4em;
     font-weight: normal;
@@ -29,7 +29,7 @@
   }
   
   .login-container {
-    background: #ebebeb;
+    
     padding: 12px;
   }
   
@@ -38,6 +38,7 @@
   }
   
   .login input {
+    border-radius: 12px;
     box-sizing: border-box;
     display: block;
     width: 100%;
@@ -54,6 +55,7 @@
     background: #fff;
     border-color: #bbb;
     color: #555;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
   
   .login input[type="email"]:focus,
@@ -62,17 +64,22 @@
   }
   
   .login input[type="submit"] {
-    background: rgb(1, 29, 51);
+    background: #80dfff;
+    border-radius: 12px;
     border-color: transparent;
-    color: #fff;
+    color:#000000;
     cursor: pointer;
   }
   
   .login input[type="submit"]:hover {
-    background: #17c;
+    border-radius: 12px;
+    color:#fff;
+    background:  #0086b3;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
   
   .login input[type="submit"]:focus {
+    border-radius: 12px;
     border-color: #05a;
   }
   
