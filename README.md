@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
+## Demo URL
+
+URL:  https://manisha12ram.github.io/loginDemo/
+
+The above URL only has client-side validation
+
+E-mail id/mobile no: **valid email-id/10 digit mobile number.**
+
+password: **max.len:15, atleast one uppercase and special character** 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
