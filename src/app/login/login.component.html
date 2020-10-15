@@ -4,9 +4,9 @@
   <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
 
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
-      <mat-form-field>
-      <input matInput type ="email" placeholder="Email/Mobile no" formControlName="email">
-    </mat-form-field>
+     
+      <input type ="email" placeholder="Email/Mobile no" formControlName="email">
+    
     </p>
 
     <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
