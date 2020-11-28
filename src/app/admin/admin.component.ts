@@ -36,7 +36,9 @@ export class AdminComponent implements OnInit {
     });
 
   }
-
+get hobbies(){
+  return this.SignupForm.get('hobbies')['controls'];
+}
   onSubmit(){
     console.log(this.SignupForm);
   }

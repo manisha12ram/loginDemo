@@ -1,0 +1,58 @@
+.bs-example{
+    margin: 20px;
+}
+.accordion .fa{
+    margin-right: 0.5rem;
+}
+.note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
+    .btnSubmit:hover {
+        border-radius: 12px;
+        color:#fff;
+        background:  #0086b3;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+.red{
+    border-color: rgb(216, 12, 12);
+}
+table
+{
+    width: 100%;    
+}
+.mat-header-cell
+{
+    text-align: center;
+}
+.mat-error{
+    font-size: small;
+}
+
+.mat-form-field{
+    width: 425px;
+}

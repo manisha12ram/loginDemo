@@ -9,3 +9,17 @@
 button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
+
+  .container div {
+    border: grey 1px solid;
+    width: 100px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    float: left;
+    transition: all 0.5s ease;
+  }
+  
+  .hidden {
+    display: none;
+  }

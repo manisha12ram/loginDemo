@@ -1,0 +1,695 @@
+<div class="bs-example" [formGroup]=registerForm>
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"><i
+              class="fa fa-th-list" aria-hidden="true"></i> Register</button>
+        </h2>
+      </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <div class="container register-form">
+            <div class="form">
+              <div class="note">
+                <p>Registration</p>
+              </div>
+
+              <div class="form-content">
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Name</mat-label>
+                      <input matInput formControlName="name"
+                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                      <mat-error *ngIf="submitted && f.name.errors">
+                        <span *ngIf="f.name.errors.required">Name is required</span>
+                        <span *ngIf="f.name.errors.pattern">numeric are not allowed</span>
+                      </mat-error>
+                    </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                    
+                        <mat-form-field class="example-full-width">
+                          <mat-label>E-mail</mat-label>
+                          <input matInput formControlName="emailId"
+                          [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">                  
+                        <mat-error *ngIf="submitted && f.emailId.errors">
+                        <span *ngIf="f.emailId.errors.required">E-mail is required</span>
+                        <span *ngIf="f.emailId.errors.pattern">E-mail is invalid</span>
+                      </mat-error>
+                    </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                      <input matInput type="password" formControlName="password"
+                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                      <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <span *ngIf="f.password.errors.required">password is required</span>
+                        <span *ngIf="f.password.errors.pattern">password length poor
+                          (max.len:15,atleast one uppercase and special character)</span>
+                      </mat-error>
+                    </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control" placeholder="Confirm Password *" formControlName="confirmPassword"
+                      [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirmPassword.errors.required">confirmPassword is required</div>
+                        <div *ngIf="f.confirmPassword.errors.confirmPasswordValidator">password mismatch</div>
+                        <div *ngIf="f.confirmPassword.errors.pattern">confirmPassword length poor
+                          (max.len:15,atleast one uppercase and special character)</div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Mobile no *" formControlName="mobileNo"
+                      [ngClass]="{ 'is-invalid': submitted && f.mobileNo.errors }">
+                      <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobileNo.errors.required">mobileno is required</div>
+                        <div *ngIf="f.mobileNo.errors.pattern">Enter valid mobile no</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h2 class="mb-0">
+          <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"><i
+              class="fa fa-users" aria-hidden="true"></i> Personal Details</button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4>Your Profile</h4>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">UserName*</label>
+                        <div class="col-8">
+                          <!-- <input id="username" name="username" placeholder="Username" class="form-control here"
+                            required="required" type="text"> -->
+                            <div class="form-group">
+                              <input type="text" id="username" class="form-control" placeholder="username" formControlName="userName"
+                                [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+                              <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                                <div *ngIf="f.userName.errors.required">username is required</div>
+                                <div *ngIf="f.userName.errors.pattern">username is invalid(use special character . or _ example: name_123)</div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="name" class="col-4 col-form-label">First Name</label>
+                        <div class="col-8">
+                          <!-- <input id="name" name="name" placeholder="First Name" class="form-control here" type="text"> -->
+                          <div class="form-group">
+                            <input type="text" id="firstname" class="form-control" placeholder="firstname" formControlName="firstName"
+                              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                              <div *ngIf="f.firstName.errors.required">Firstname is required</div>
+                              <div *ngIf="f.firstName.errors.pattern">numeric are not allowed</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="name" class="col-4 col-form-label">Middle Name</label>
+                        <div class="col-8">
+                          <!-- <input id="name" name="name" placeholder="First Name" class="form-control here" type="text"> -->
+                          <div class="form-group">
+                            <input type="text" id="middlename" class="form-control" placeholder="middlename" formControlName="middleName"
+                              [ngClass]="{ 'is-invalid': submitted && f.middleName.errors }">
+                            <div *ngIf="submitted && f.middleName.errors" class="invalid-feedback">
+                              <div *ngIf="f.middleName.errors.required">lastname is required</div>
+                              <div *ngIf="f.middleName.errors.pattern">numerics are not allowed</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-4 col-form-label">Last Name</label>
+                        <div class="col-8">
+                          <!-- <input id="lastname" name="lastname" placeholder="Last Name" class="form-control here" type="text"> -->
+                          <div class="form-group">
+                            <input type="text" id="lastname" class="form-control" placeholder="lastname" formControlName="lastName"
+                              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                              <div *ngIf="f.lastName.errors.required">lastname is required</div>
+                              <div *ngIf="f.lastName.errors.pattern">numerics are not allowed</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="text" class="col-4 col-form-label">Emirates ID</label>
+                        <div class="col-8">
+                          <!-- <input id="text" name="text" placeholder="emerites ID" class="form-control here"required="required" type="text"> -->
+
+                          <div class="form-group">
+                            <input type="text" id="emiratesId" class="form-control" placeholder="xxx-xxxx-xxxxxxx-x" formControlName="emiratesId"
+                              [ngClass]="{ 'is-invalid': submitted && f.emiratesId.errors }">
+                            <div *ngIf="submitted && f.emiratesId.errors" class="invalid-feedback">
+                              <div *ngIf="f.emiratesId.errors.required">ID is required</div>
+                              <div *ngIf="f.emiratesId.errors.pattern">enter validd id/follow the pattern:xxx-xxxx-xxxxxxx-x</div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="select" class="col-4 col-form-label">Gender</label>
+                        <div class="col-8">
+                          <select id="select" name="select" class="custom-select">
+                            <option value="admin">female</option>
+                            <option value="admin">Male</option>
+                            <option value="admin">Others</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="sisNumber" class="col-4 col-form-label">SIS Number*</label>
+                        <div class="col-8">
+                          <!-- <input id="email" name="email" placeholder="SIS number" class="form-control here"required="required" type="text"> -->
+                          <div class="form-group">
+                            <input type="text" id="sisNumber" class="form-control" placeholder="number" formControlName="sisNumber"
+                              [ngClass]="{ 'is-invalid': submitted && f.sisNumber.errors }">
+                            <div *ngIf="submitted && f.sisNumber.errors" class="invalid-feedback">
+                              <div *ngIf="f.sisNumber.errors.required">If you don't know the number, please check with your school</div>
+                              <!-- <div *ngIf="f.sisNumber.errors.pattern">enter validd id/follow the pattern:xxx-xxxx-xxxxxxx-x</div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <label for="ADDRESS" class="col-4 col-form-label">ADDRESS</label>
+                        <div class="col-8">
+                          <textarea id="publicinfo" name="publicinfo" cols="40" rows="4"
+                            class="form-control"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="newpass" class="col-4 col-form-label">Zipcode</label>
+                        <div class="col-8">
+                          <input id="newpass" name="newpass" placeholder="Zipcode" class="form-control here"
+                            type="text">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="email" class="col-4 col-form-label">Date of Birth</label>
+                        <div class="col-8">
+                          <input type="date" name="dateofbirth" id="dateofbirth">
+                        </div>
+                      </div>
+
+
+                      <!-- <div class="form-group row">
+                        <div class="offset-4 col-8">
+                          <button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
+                        </div>
+                      </div> -->
+                    
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"><i
+              class="fa fa-graduation-cap" aria-hidden="true"></i> Academics Details</button>
+        </h2>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div class="card-body">
+
+          <div class="container">
+            <div class="col">
+              <div class="row">
+                  <label for="select" class="col-4 col-form-label">Qualification</label>
+                  <div *ngIf="educationList" class="col-sm-4">
+                    <select (change)="onChange($event.target.value)" name="select" class="custom-select">
+                      <option value="">select</option>
+                      <option *ngFor="let edu of educationList" [value]="edu.value">{{edu.label}}</option>
+                    </select>
+                  </div>
+                    <div class="col-sm-4">
+                      <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Row</button>
+                  </div>
+                </div>
+              <br>
+              <div *ngIf="educationstr ==='secondary'" class="jumbotron" [formGroup] =secondaryForm>
+                <h5>SECONDARY</h5>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="schoolname" class="col-4 col-form-label">school Name</label>
+                      <div class="col-8">
+                        <input id="SchoolName" name="schoolName" placeholder="schoolname" class="form-control here"
+                          type="text" formControlName="instituteName">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="year" class="col-4 col-form-label">year of passing</label>
+                      <div class="col-8">
+                        <input id="year" name="year" placeholder="year of passing" class="form-control here"
+                          type="text" formControlName="yearOfPassing">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="schoolMedium" class="col-4 col-form-label">schoolMedium</label>
+                      <div class="col-8">
+                        <input id="schoolMedium" name="schoolMedium" placeholder="medium" class="form-control here"
+                          type="text" formControlName="schoolMedium">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="grade" class="col-4 col-form-label">Grade</label>
+                      <div class="col-8">
+                        <input id="grade" name="grade" placeholder="Grade" class="form-control here" 
+                        type="text" formControlName="grade">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="board" class="col-4 col-form-label">board</label>
+                      <div class="col-8">
+                        <input id="board" name="board" placeholder="board" class="form-control here" 
+                        type="text" formControlName="board">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div *ngIf="educationstr ==='higsec'" class="jumbotron" [formGroup] =higsecForm>
+                <h5>HIGHER SECONDARY</h5>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="year" class="col-4 col-form-label">year of passing</label>
+                      <div class="col-8">
+                        <input id="year" name="year" placeholder="year of passing" class="form-control here"
+                          type="text" formControlName="yearOfPassing">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="schoolMedium" class="col-4 col-form-label">school medium</label>
+                      <div class="col-8">
+                        <input id="schoolMedium" name="schoolMedium" placeholder="school medium" class="form-control here"
+                          type="text" formControlName="schoolMedium">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="board" class="col-4 col-form-label">Board</label>
+                      <div class="col-8">
+                        <input id="board" name="board" placeholder="Board" class="form-control here" 
+                        type="text" formControlName="board">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="specialization" class="col-4 col-form-label">stream</label>
+                      <div class="col-8">
+                        <input id="specialization" name="specialization" placeholder="specialization" class="form-control here" 
+                        type="text" formControlName="specialization">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="instituteName" class="col-4 col-form-label">school Name</label>
+                      <div class="col-8">
+                        <input id="instituteName" name="instituteName" placeholder="school name" class="form-control here"
+                          type="text" formControlName="instituteName">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="grade" class="col-4 col-form-label">Grade</label>
+                      <div class="col-8">
+                        <input id="grade" name="grade" placeholder="Grade" class="form-control here" 
+                        type="text" formControlName="grade">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div *ngIf="educationstr ==='ug'" class="jumbotron" [formGroup] =ugForm>
+
+                <h5>UNDER GRADUATE</h5>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="year" class="col-4 col-form-label">year of passing</label>
+                      <div class="col-8">
+                        <input id="year" name="year" placeholder="year of passing" class="form-control here"
+                          type="text" formControlName="yearOfPassing">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="instituteName" class="col-4 col-form-label">university Name</label>
+                      <div class="col-8">
+                        <input id="instituteName" name="instituteName" placeholder="university Name" class="form-control here"
+                          type="text" formControlName="instituteName">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="course" class="col-4 col-form-label">Course</label>
+                      <div class="col-8">
+                        <input id="course" name="course" placeholder="course" class="form-control here" 
+                        type="text" formControlName="course">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="grade" class="col-4 col-form-label">Grade</label>
+                      <div class="col-8">
+                        <input id="grade" name="grade" placeholder="Grade" class="form-control here" 
+                        type="text" formControlName="grade">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="specialization" class="col-4 col-form-label">Specialization</label>
+                      <div class="col-8">
+                        <input id="specialization" name="specialization" placeholder="Specialization" class="form-control here"
+                          type="text" formControlName="specialization">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="select" class="col-4 col-form-label">Course type</label>
+                      <div class="col-8">
+                        <select id="select" name="select" class="custom-select" formControlName="courseType">
+                          <option value="admin">part time</option>
+                          <option value="admin">full time</option>
+                          <option value="admin">correspondande/Distance learning</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+             </div>
+              <div *ngIf="educationstr ==='pg'" class="jumbotron" [formGroup] =pgForm>
+                <h5>POST GRADUATE</h5>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="year" class="col-4 col-form-label">year of passing</label>
+                      <div class="col-8">
+                        <input id="year" name="year" placeholder="year of passing" class="form-control here"
+                          type="text" formControlName="yearOfPassing">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="instituteName" class="col-4 col-form-label">university Name</label>
+                      <div class="col-8">
+                        <input id="instituteName" name="instituteName" placeholder="university Name" class="form-control here"
+                          type="text" formControlName="instituteName">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="course" class="col-4 col-form-label">Course</label>
+                      <div class="col-8">
+                        <input id="course" name="course" placeholder="course" class="form-control here" 
+                        type="text" formControlName="course">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="grade" class="col-4 col-form-label">Grade</label>
+                      <div class="col-8">
+                        <input id="grade" name="grade" placeholder="Grade" class="form-control here" 
+                        type="text" formControlName="grade">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="specialization" class="col-4 col-form-label">Specialization</label>
+                      <div class="col-8">
+                        <input id="specialization" name="specialization" placeholder="Specialization" class="form-control here"
+                          type="text" formControlName="specialization">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="select" class="col-4 col-form-label">Course type</label>
+                      <div class="col-8">
+                        <select id="select" name="select" class="custom-select" formControlName="courseType">
+                          <option value="admin">part time</option>
+                          <option value="admin">full time</option>
+                          <option value="admin">correspondande/Distance learning</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+
+              </div>
+              <div *ngIf="educationstr ==='phd'" class="jumbotron" [formGroup] =phdForm>
+                <h5>PH.D</h5>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="year" class="col-4 col-form-label">year of passing</label>
+                      <div class="col-8">
+                        <input id="year" name="year" placeholder="year of passing" class="form-control here"
+                          type="text" formControlName="yearOfPassing">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="instituteName" class="col-4 col-form-label">university Name</label>
+                      <div class="col-8">
+                        <input id="instituteName" name="instituteName" placeholder="university Name" class="form-control here"
+                          type="text" formControlName="instituteName">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="course" class="col-4 col-form-label">Course</label>
+                      <div class="col-8">
+                        <input id="course" name="course" placeholder="course" class="form-control here" 
+                        type="text" formControlName="course">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="grade" class="col-4 col-form-label">Grade</label>
+                      <div class="col-8">
+                        <input id="grade" name="grade" placeholder="Grade" class="form-control here" 
+                        type="text" formControlName="grade">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="specialization" class="col-4 col-form-label">Specialization</label>
+                      <div class="col-8">
+                        <input id="specialization" name="specialization" placeholder="Specialization" class="form-control here"
+                          type="text" formControlName="specialization">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group row">
+                      <label for="select" class="col-4 col-form-label">Course type</label>
+                      <div class="col-8">
+                        <select id="select" name="select" class="custom-select" formControlName="courseType">
+                          <option value="admin">part time</option>
+                          <option value="admin">full time</option>
+                          <option value="admin">correspondande/Distance learning</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="container text-center">
+              
+
+                <!-- <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Row</button> -->
+              
+                <table mat-table [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+              
+                  <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                  <!-- Id Column -->
+                  <ng-container matColumnDef="sequenceOrder" >
+                    <th mat-header-cell *matHeaderCellDef> s.no</th>
+                    <td mat-cell *matCellDef="let element"> {{element.sequenceOrder}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="qualification">
+                    <th mat-header-cell *matHeaderCellDef> qual </th>
+                    <td mat-cell *matCellDef="let element"> {{element.qualification}} </td>
+                  </ng-container>
+              
+                  <!-- Id Column -->
+                  <ng-container matColumnDef="board" >
+                    <th mat-header-cell *matHeaderCellDef> board </th>
+                    <td mat-cell *matCellDef="let element"> {{element.board}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="schoolMedium">
+                    <th mat-header-cell *matHeaderCellDef> Medium </th>
+                    <td mat-cell *matCellDef="let element"> {{element.schoolMedium}} </td>
+                  </ng-container>
+              
+                  <!-- Id Column -->
+                  <ng-container matColumnDef="course" >
+                    <th mat-header-cell *matHeaderCellDef> course </th>
+                    <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="specialization">
+                    <th mat-header-cell *matHeaderCellDef> stream </th>
+                    <td mat-cell *matCellDef="let element"> {{element.specialization}} </td>
+                  </ng-container>
+              
+                  <!-- Id Column -->
+                  <ng-container matColumnDef="instituteName" >
+                    <th mat-header-cell *matHeaderCellDef> instName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.instituteName}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="grade">
+                    <th mat-header-cell *matHeaderCellDef> grade </th>
+                    <td mat-cell *matCellDef="let element"> {{element.grade}} </td>
+                  </ng-container>
+              
+                  <!-- Id Column -->
+                  <ng-container matColumnDef="yearOfPassing" >
+                    <th mat-header-cell *matHeaderCellDef> yop </th>
+                    <td mat-cell *matCellDef="let element"> {{element.yearOfPassing}} </td>
+                  </ng-container>
+              
+                  
+                  <!-- Action Column -->
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element" class="action-link"> 
+                      <!-- <a (click)="openDialog('Update',element)">Edit</a> |  -->
+                      <button mat-button (click)="openDialog('Delete',element)"><mat-icon>delete</mat-icon></button>  
+                    </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              
+              </div>
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <br>
+  <button type="button" class="btnSubmit" (click)="onsubmit()">REGISTER</button>
+  </div>
+  </div>

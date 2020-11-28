@@ -1,0 +1,50 @@
+<div class="card">
+	<img class="rounded-circle" [src]="urllink">
+	<input #fileInput type="file" (change)="selectFile($event)" style="display:none;">
+	<mat-icon style="cursor: pointer;" (click)="fileInput.click()">add_a_photo</mat-icon>
+	<mat-label>Add picture</mat-label>
+</div>
+
+<p>persdet works!</p>
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+	<mat-step [stepControl]="firstFormGroup">
+		<form [formGroup]="firstFormGroup">
+			<ng-template matStepLabel>Fill out your name</ng-template>
+			<mat-form-field>
+				<mat-label>Name</mat-label>
+				<input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+			</mat-form-field>
+			<app-login></app-login>
+			<div>
+				<button mat-button matStepperNext>Next</button>
+			</div>
+		</form>
+	</mat-step>
+	<mat-step [stepControl]="secondFormGroup">
+		<form [formGroup]="secondFormGroup">
+			<ng-template matStepLabel>Fill out your address</ng-template>
+			<mat-form-field>
+				<mat-label>Address</mat-label>
+				<input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
+
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput [matDatepicker]="dp" placeholder="Verbose datepicker">
+				<mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+				<mat-datepicker #dp></mat-datepicker>
+			</mat-form-field>
+			<div>
+				<button mat-button matStepperPrevious>Back</button>
+				<button mat-button matStepperNext>Next</button>
+			</div>
+		</form>
+	</mat-step>
+	<mat-step>
+		<ng-template matStepLabel>Done</ng-template>
+		<p>You are now done.</p>
+		<div>
+			<button mat-button matStepperPrevious>Back</button>
+			<button mat-button (click)="stepper.reset()">Reset</button>
+		</div>
+	</mat-step>
+</mat-horizontal-stepper>

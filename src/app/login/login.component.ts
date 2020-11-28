@@ -41,4 +41,6 @@ login(){
 get formControls() { return this.loginForm.controls; }
 }
 
- 
+// export class InputClearableExample {
+//   value = 'Clear me';
+// }
